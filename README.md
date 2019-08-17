@@ -19,7 +19,7 @@ It would produce folders using the non extension part of names of files to copy 
 
 Since this was written in a haste, here are some todo's
 
--[ ] Better Error Handling
--[ ] More Elegant pythonic code
--[ ] Write Some Tests
--[X] Do none of the above till further notice 😋
+- [ ] Better Error Handling
+- [ ] More Elegant pythonic code
+- [ ] Write Some Tests
+- [X] Do none of the above till further notice 😋
