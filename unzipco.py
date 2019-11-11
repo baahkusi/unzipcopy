@@ -15,18 +15,23 @@ def unzipco(zipz, *fnames):
     mkdirs(zipz,*fnames)
     # Unzip each file and copy fnames to related folder, number each.
     count = 0
-    print('Begin Extraction ...\n')
+    print(f'Begin Extraction of {len(zips)} zipfiles...\n')
     for zpf in zips:
-        with ZipFile(zipz+'/'+zpf) as zp:
-            for fn in fnames:
-                try:
-                    zp.extract(fn,zipz)
-                    f = ndes(fn, count)
-                    print('Extracting '+ fn + ' to ' + f + '...\n')
-                    os.rename(zipz+'/'+fn, zipz+'/'+f)
-                except:
-                    pass
-        count += 1
+        try:
+            with ZipFile(zipz+'/'+zpf) as zp:
+                for fn in fnames:
+                    try:
+                        zp.extract(fn,zipz)
+                        f = ndes(fn, count)
+                        print('Extracting '+ fn + ' to ' + f + '...\n')
+                        os.rename(zipz+'/'+fn, zipz+'/'+f)
+                    except Exception as e:
+                        print(e)
+                        pass
+            count += 1
+        except Exception as e:
+            print(e)
+            pass
 
 
 def mkdirs(zipz,*fnames):
